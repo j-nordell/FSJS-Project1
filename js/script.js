@@ -1,4 +1,4 @@
-let quotes = [
+const quotes = [
     { 
         quote: "Frankly, my dear, I don't give a damn.",
         source: "Rhett Butler",
@@ -53,16 +53,45 @@ let quotes = [
     }
 ];
 
-function getRandomQuote() {
-    return quotes[Math.floor(Math.random()* quotes.length)];
+let randomIndexes = [];
+let currentIndex = 0;
+randomizeIndexes();
+
+function randomizeIndexes() {
+    randomIndexes = [];
+    console.log(randomIndexes);
+    while(randomIndexes.length != quotes.length) {
+        var randIndex = Math.floor(Math.random() * quotes.length);
+        if(!randomIndexes.includes(randIndex)) {
+            randomIndexes.push(randIndex);
+        }
+    }
 }
 
+function getRandomQuote() {
+    var randomQuote;
+    if(currentIndex == quotes.length) {
+        randomizeIndexes();
+        currentIndex = 0;
+    }
+    randomQuote = quotes[randomIndexes[currentIndex]];
+    currentIndex++;
+    return randomQuote;
+}
 
 function printQuote() {
     let html = "";
     let selectedQuote = getRandomQuote();
     html += `<p class="quote">${selectedQuote["quote"]}</p>`;
-    html += `<p class="source">${selectedQuote["source"]}</p>`;
+    html += `<p class="source">${selectedQuote["source"]}`;
+    if(selectedQuote.hasOwnProperty("citation")) {
+        html += `<span class="citation">${selectedQuote["citation"]}</span>`;
+    }
+    if(selectedQuote.hasOwnProperty("year")) {
+        html += `<span class="year">${selectedQuote["year"]}</span>`;
+    }
+    html += "</p>";
+
     document.getElementById('quote-box').innerHTML = html;
     console.log(selectedQuote);
 }
