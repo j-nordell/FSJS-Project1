@@ -3,37 +3,45 @@ const quotes = [
         quote: "Frankly, my dear, I don't give a damn.",
         source: "Rhett Butler",
         citation: "Gone With the Wind",
-        year: 1939
+        year: 1939,
+        tags: ["movies"]
     },
     {
         quote: "Do not take life too seriously. You will never get out of it alive.",
         source: "Elbert Hubbard",
+        tags: ["humor"]
     },
     {
         quote: "To succeed in life, you need three things: a wishbone, a backbone and a funny bone.",
-        source: "Reba McEntire"
+        source: "Reba McEntire",
+        tags: ["motivation", "humor"]
     },
     {
         quote: "Others have seen what is and asked why. I have seen what could be and asked why not.",
         source: "Pablo Picasso",
-        citation: "Pablo Picasso: Metamorphoses of the Human Form: Graphic Works"
+        citation: "Pablo Picasso: Metamorphoses of the Human Form: Graphic Works",
+        tags: ["creativity"]
     },
     {
         quote: "Imagination is everything. It is the preview of life's coming attractions.",
-        source: "Albert Einstein"
+        source: "Albert Einstein",
+        tags: ["creativity"]
     },
     {
         quote: "I never made one of my discoveries through the process of rational thinking.",
-        source: "Albert Einstein"
+        source: "Albert Einstein",
+        tags: ["creativity"]
     },
     {
         quote: "The worst enemy to creativity is self-doubt.",
         source: "Sylvia Plath",
-        citation: "The Unabridged Journals of Sylvia Plath"
+        citation: "The Unabridged Journals of Sylvia Plath",
+        tags: ["creativity", "motivation"]
     },
     {
         quote: "Only I can change my life. No one can do it for me.",
-        source: "Carol Burnett"
+        source: "Carol Burnett",
+
     },
     {
         quote: "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence",
@@ -62,6 +70,7 @@ function randomizeIndexes() {
     console.log(randomIndexes);
     while(randomIndexes.length != quotes.length) {
         var randIndex = Math.floor(Math.random() * quotes.length);
+        console.log(randIndex);
         if(!randomIndexes.includes(randIndex)) {
             randomIndexes.push(randIndex);
         }
