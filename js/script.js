@@ -1,3 +1,6 @@
+// Project 1 - FSJS Techdegree
+// Jennifer Nordell
+
 var quotes = [ 
     { 
         quote: "Frankly, my dear, I don't give a damn.",
@@ -65,6 +68,7 @@ var quotes = [
     } 
 ];
 
+// a place to hold the quotes that have been shown thus far
 let usedQuotes = []
 
 function getRandomQuote() {
@@ -80,11 +84,16 @@ function getRandomQuote() {
     }
 }
 
+// Build up the HTML to print to the appropriate place
 function printQuote() {
-    let html = "";
+    let html = "";  // Initialized to an empty string to avoid problems with undefined when concatenating
     let selectedQuote = getRandomQuote();
+
+    // No matter what, add these two paragraphs
     html += `<p class="quote">${selectedQuote["quote"]}</p>`;
     html += `<p class="source">${selectedQuote["source"]}`;
+
+    // If the quote has any or all of these properties, add them to the HTML
     if(selectedQuote.hasOwnProperty("citation")) {
         html += `<span class="citation">${selectedQuote["citation"]}</span>`;
     }
@@ -100,7 +109,10 @@ function printQuote() {
         html += `</p>`;
     }
 
+    // Write the HTML the DOM by setting the ìnnerHTML property
     document.getElementById('quote-box').innerHTML = html;
+
+    // Change the bakcground color to a random color
     document.body.style.backgroundColor = getRandomColor();
     console.log(selectedQuote);
 }
