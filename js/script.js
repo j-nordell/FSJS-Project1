@@ -118,14 +118,12 @@ function printQuote() {
 
     // Change the bakcground color to a random color
     document.body.style.backgroundColor = getRandomColor();
-    console.log(selectedQuote);
 }
 
 function getRandomColor() {
     // Generate random rgb color for changing background color
     // Upper range limited so as to ensure that the white text still shows up
     let color = `rgb(${Math.floor(Math.random()*200)}, ${Math.floor(Math.random()*200)}, ${Math.floor(Math.random()*200)}`;
-    console.log(color);
     return color;    
 }
 
