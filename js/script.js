@@ -1,4 +1,4 @@
-const quotes = [
+var quotes = [ /*
     { 
         quote: "Frankly, my dear, I don't give a damn.",
         source: "Rhett Butler",
@@ -37,7 +37,7 @@ const quotes = [
         source: "Sylvia Plath",
         citation: "The Unabridged Journals of Sylvia Plath",
         tags: ["creativity", "motivation"]
-    },
+    }, */
     {
         quote: "Only I can change my life. No one can do it for me.",
         source: "Carol Burnett",
@@ -58,34 +58,22 @@ const quotes = [
     {
         quote: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
         source: "Thomas A. Edison"
-    }
+    } 
 ];
 
-let randomIndexes = [];
-let currentIndex = 0;
-randomizeIndexes();
-
-function randomizeIndexes() {
-    randomIndexes = [];
-    console.log(randomIndexes);
-    while(randomIndexes.length != quotes.length) {
-        var randIndex = Math.floor(Math.random() * quotes.length);
-        console.log(randIndex);
-        if(!randomIndexes.includes(randIndex)) {
-            randomIndexes.push(randIndex);
-        }
-    }
-}
+let usedQuotes = []
 
 function getRandomQuote() {
-    var randomQuote;
-    if(currentIndex == quotes.length) {
-        randomizeIndexes();
-        currentIndex = 0;
+    if(quotes.length === 0) {
+        // Quotes is empty, we need to reset the arrays
+        quotes = usedQuotes;
+        usedQuotes = [];
+        return getRandomQuote(); // It's necessary to recurse and go again now it's in the proper state
+    } else {
+        const selection = quotes.splice(Math.floor(Math.random() * quotes.length), 1)[0]; // This simultaneously gets the object at a random index and removes it from the quotes array
+        usedQuotes.push(selection);
+        return selection;
     }
-    randomQuote = quotes[randomIndexes[currentIndex]];
-    currentIndex++;
-    return randomQuote;
 }
 
 function printQuote() {
