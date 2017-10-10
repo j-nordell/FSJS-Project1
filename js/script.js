@@ -1,6 +1,10 @@
 // Project 1 - FSJS Techdegree
 // Jennifer Nordell
 
+
+// Set the interval to pull up a new quote
+var intervalID = window.setInterval(printQuote, 10000);
+
 var quotes = [ 
     { 
         quote: "Frankly, my dear, I don't give a damn.",
