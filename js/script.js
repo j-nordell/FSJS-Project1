@@ -64,24 +64,16 @@ var quotes = [ /*
 let usedQuotes = []
 
 function getRandomQuote() {
-    let randomIndex = Math.floor(Math.random()*quotes.length);
-    let randomQuote;
-    console.log(randomIndex);
-
-    if(quotes.length == 0) {
-        console.log("===============================");
-        for(var i = 0; i < usedQuotes.length; i++) {
-            quotes.push(usedQuotes[i]);
-        }
+    if(quotes.length === 0) {
+        // Quotes is empty, we need to reset the arrays
+        quotes = usedQuotes;
         usedQuotes = [];
-        randomQuote = quotes[randomIndex];
+        return getRandomQuote(); // It's necessary to recurse and go again now it's in the proper state
     } else {
-        randomQuote = quotes[randomIndex];
-        usedQuotes.push(randomQuote);
-        quotes.splice(randomIndex, 1);
-    }   
-
-    return randomQuote;
+        const selection = quotes.splice(Math.floor(Math.random() * quotes.length), 1)[0]; // This simultaneously gets the object at a random index and removes it from the quotes array
+        usedQuotes.push(selection);
+        return selection;
+    }
 }
 
 function printQuote() {
