@@ -1,4 +1,4 @@
-var quotes = [ /*
+var quotes = [ 
     { 
         quote: "Frankly, my dear, I don't give a damn.",
         source: "Rhett Butler",
@@ -37,27 +37,31 @@ var quotes = [ /*
         source: "Sylvia Plath",
         citation: "The Unabridged Journals of Sylvia Plath",
         tags: ["creativity", "motivation"]
-    }, */
+    },
     {
         quote: "Only I can change my life. No one can do it for me.",
         source: "Carol Burnett",
-
+        tags: ["motivation"]
     },
     {
         quote: "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence",
-        source: "Hellen Keller"
+        source: "Hellen Keller",
+        tags: ["success", "motivation"]
     },
     {
         quote: "It does not matter how slowly you go as long as you do not stop.",
-        source: "Confuscius"
+        source: "Confuscius",
+        tags: ["motivation"]
     },
     {
         quote: "If you can dream it, you can do it.",
-        source: "Walt Disney"
+        source: "Walt Disney",
+        tags: ["creativity", "motivation"]
     },
     {
         quote: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
-        source: "Thomas A. Edison"
+        source: "Thomas A. Edison",
+        tags: ["success", "motivation"]
     } 
 ];
 
@@ -88,10 +92,27 @@ function printQuote() {
         html += `<span class="year">${selectedQuote["year"]}</span>`;
     }
     html += "</p>";
+    if(selectedQuote.hasOwnProperty("tags")) {
+        html += `<p>`;
+        for(var i = 0; i < selectedQuote["tags"].length; i++) {
+            html += `<span>#${selectedQuote["tags"][i]}  </span>`;
+        }
+        html += `</p>`;
+    }
 
     document.getElementById('quote-box').innerHTML = html;
+    document.body.style.backgroundColor = getRandomColor();
     console.log(selectedQuote);
 }
+
+function getRandomColor() {
+    // Generate random rgb color for changing background color
+    // Upper range limited so as to ensure that the white text still shows up
+    let color = `rgb(${Math.floor(Math.random()*200)}, ${Math.floor(Math.random()*200)}, ${Math.floor(Math.random()*200)}`;
+    console.log(color);
+    return color;    
+}
+
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
