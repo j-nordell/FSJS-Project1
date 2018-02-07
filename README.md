@@ -31,7 +31,7 @@
 
 - [x] Add comments to your code.
 
-- [ ] Check off all items on the Student Project Submission Checklist
+- [x] Check off all items on the Student Project Submission Checklist
 
 ## Extra Credit
 
