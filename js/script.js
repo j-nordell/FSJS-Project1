@@ -69,7 +69,13 @@ var quotes = [
         quote: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
         source: "Thomas A. Edison",
         tags: ["success", "motivation"]
+    },
+    {
+        quote: "Imagination is the beginning of creation. You imagine what you desire, you will what you imagine, and at last, you create what you will",
+        source: "George Bernard Shaw",
+        tags: ["creativity", "motivation"]
     } 
+
 ];
 
 // a place to hold the quotes that have been shown thus far
