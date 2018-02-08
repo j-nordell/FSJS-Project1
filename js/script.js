@@ -74,7 +74,11 @@ var quotes = [
         quote: "Imagination is the beginning of creation. You imagine what you desire, you will what you imagine, and at last, you create what you will",
         source: "George Bernard Shaw",
         tags: ["creativity", "motivation"]
-    } 
+    },
+    {
+        quote: "Success consists of going from failure to failure without loss of enthusiasm.",
+        source: "Winston Churchill"
+    }
 
 ];
 
