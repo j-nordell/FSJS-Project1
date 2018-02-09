@@ -77,7 +77,13 @@ var quotes = [
     },
     {
         quote: "Success consists of going from failure to failure without loss of enthusiasm.",
-        source: "Winston Churchill"
+        source: "Winston Churchill",
+        tags: ["success", "motivation", "persistence"]
+    },
+    {
+        quote: "Mistakes are proof that you are trying.",
+        source: "Author unknown",
+        tags: ["motivation", "persistance"]
     }
 
 ];
