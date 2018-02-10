@@ -84,6 +84,11 @@ var quotes = [
         quote: "Mistakes are proof that you are trying.",
         source: "Author unknown",
         tags: ["motivation", "persistance"]
+    },
+    {
+        quote: "If you really look closely, most overnight successes took a long time.",
+        source: "Steve Jobs",
+        tags: ["success", "time", "persistence"]
     }
 
 ];
