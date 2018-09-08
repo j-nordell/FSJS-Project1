@@ -135,9 +135,7 @@ function printQuote() {
     // Change the bakcground color to a random color
     let randomColor = getRandomColor();
     document.body.style.backgroundColor = randomColor;
-    button.style.color = randomColor;
-    button.style.backgroundColor = "white";
-
+   
     // Clear interval
     clearInterval(intervalID);
     intervalID = window.setInterval(printQuote, 10000);
