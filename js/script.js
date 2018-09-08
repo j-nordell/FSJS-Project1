@@ -87,7 +87,9 @@ var quotes = [
 ];
 
 // a place to hold the quotes that have been shown thus far
-let usedQuotes = []
+let usedQuotes = [];
+let button = document.getElementById("loadQuote");
+printQuote();
 
 function getRandomQuote() {
     if(quotes.length === 0) {
@@ -131,7 +133,14 @@ function printQuote() {
     document.getElementById('quote-box').innerHTML = html;
 
     // Change the bakcground color to a random color
-    document.body.style.backgroundColor = getRandomColor();
+    let randomColor = getRandomColor();
+    document.body.style.backgroundColor = randomColor;
+    button.style.color = randomColor;
+    button.style.backgroundColor = "white";
+
+    // Clear interval
+    clearInterval(intervalID);
+    intervalID = window.setInterval(printQuote, 10000);
 }
 
 function getRandomColor() {
