@@ -6,13 +6,6 @@
 var intervalID = window.setInterval(printQuote, 10000);
 
 var quotes = [ 
-    { 
-        quote: "Frankly, my dear, I don't give a damn.",
-        source: "Rhett Butler",
-        citation: "Gone With the Wind",
-        year: 1939,
-        tags: ["movies"]
-    },
     {
         quote: "Do not take life too seriously. You will never get out of it alive.",
         source: "Elbert Hubbard",
